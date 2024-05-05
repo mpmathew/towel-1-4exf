@@ -1,0 +1,21 @@
+app:
+    name: Towel
+    code: TOWEL
+    notify: mpmathew@ecloudcontrol.com
+    
+build:
+    version: 1.4
+    env: DEV
+    build_file: none
+    output_files: output/*.zip
+    image_template: towel-1.4exf
+
+deploy:
+    context: exf/DEV
+    replicas: 1
+  
+properties:
+    PREFECT_SERVER__HASURA__ADMIN_SECRET: 
+      vault: PREFECT_SERVER__HASURA__ADMIN_SECRET
+    PREFECT_SERVER__HASURA__HOST: hasura-2-3exf-2-38
+    revision : 42
